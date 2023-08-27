@@ -16,4 +16,7 @@ class exercise(Base):
     started_at = Column(DateTime)
     completed_at = Column(DateTime, default=datetime.now())
 
-class 
+    def __repr__(self):
+        return f'Exercise(id={self.id}, ' + \
+            f'name={self.exercise_name}, ' + \
+            f'difficulty={self.difficulty})'
