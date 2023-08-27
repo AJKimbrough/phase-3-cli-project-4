@@ -1,6 +1,9 @@
+from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKey
 from datetime import datetime
+
+engine = create_engine('sqlite://workout_data')
 
 Base = declarative_base()
 
@@ -12,3 +15,5 @@ class exercise(Base):
     difficulty = Column(String)
     started_at = Column(DateTime)
     completed_at = Column(DateTime, default=datetime.now())
+
+class 
