@@ -1,6 +1,8 @@
 from models import Workout, User
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from random import choice as rc
+from faker import Faker
 
 engine = create_engine('sqlite:///workout_data.db')
 Session = sessionmaker(bind=engine)
