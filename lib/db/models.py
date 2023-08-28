@@ -17,7 +17,7 @@ class Workout(Base):
     completed_at = Column(DateTime, default=datetime.now())
 
     def __repr__(self):
-        return f'Exercise(id={self.id}, ' + \
+        return f'workout(id={self.id}, ' + \
             f'name={self.workout_name}, ' + \
             f'difficulty={self.difficulty})'
     
@@ -27,4 +27,11 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     user_name = Column(String)
     age = Column(Integer)
-    
+    sport = Column(String)
+
+    def __repr__(self):
+        return f'User(id={self.id}, ' + \
+            f'name={self.user_name}, ' + \
+            f'age={self.age}), ' + \
+            f'sport={self.sport}'
+
