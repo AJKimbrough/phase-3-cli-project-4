@@ -16,6 +16,8 @@ class Workout(Base):
     started_at = Column(DateTime)
     completed_at = Column(DateTime, default=datetime.now())
 
+    user_id = Column(Integer, ForeignKey('users.id'))
+
     def __repr__(self):
         return f'workout(id={self.id}, ' + \
             f'name={self.workout_name}, ' + \
