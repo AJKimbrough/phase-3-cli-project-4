@@ -17,3 +17,7 @@ def create_users():
     session.add_all(users)
     session.commit()
     return users
+
+if __name__ == '__main__':
+    workouts = create_workouts()
+    users = create_users()
