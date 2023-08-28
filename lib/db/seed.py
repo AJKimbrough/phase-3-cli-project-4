@@ -23,6 +23,17 @@ def delete_records():
     session.query(User).delete()
     session.commit()
 
+def one_to_many(workouts, users):
+    for workout in workouts:
+        workout.user = rc(users)
+    
+    session.add_all(workouts)
+    session.commit()
+
+    return workouts, users
+
 if __name__ == '__main__':
+    delete_records()
     workouts = create_workouts()
     users = create_users()
+    workouts, users = one_to_many(workouts, users)
