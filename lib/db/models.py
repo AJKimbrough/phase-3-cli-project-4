@@ -24,4 +24,7 @@ class Workout(Base):
 class User(Base):
     __tablename__ = 'users'
 
+    id = Column(Integer, primary_key=True)
+    user_name = Column(String)
+    age = Column(Integer)
     
