@@ -8,8 +8,13 @@ engine = create_engine('sqlite:///workout_data.db')
 Session = sessionmaker(bind=engine)
 session = Session()
 
+fake = Faker()
+
 def create_workouts():
-    workouts = [Workout() for i in range(25)]
+    workouts = [Workout(
+        exercise=fake.word(),
+    ) 
+    for i in range(25)]
     session.add_all(workouts)
     session.commit()
     return workouts
