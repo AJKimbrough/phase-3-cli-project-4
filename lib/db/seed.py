@@ -13,4 +13,7 @@ def create_workouts():
     return workouts
 
 def create_users():
-    users = [User()]
+    users = [User() for i in range(50)]
+    session.add_all(users)
+    session.commit()
+    return users
