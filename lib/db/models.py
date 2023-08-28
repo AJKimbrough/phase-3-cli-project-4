@@ -12,17 +12,11 @@ class Workout(Base):
     __tablename__ = 'workout'
 
     id = Column(Integer, primary_key=True)
-    workout_name = Column(String)
     difficulty = Column(String)
     started_at = Column(DateTime)
     completed_at = Column(DateTime, default=datetime.now())
 
     user_id = Column(Integer, ForeignKey('user.id'))
-
-    def __repr__(self):
-        return f'workout(id={self.id}, ' + \
-            f'name={self.workout_name}, ' + \
-            f'difficulty={self.difficulty})'
     
 class User(Base):
     __tablename__ = 'user'
@@ -34,9 +28,5 @@ class User(Base):
 
     workouts = relationship("Workout", backref=backref('the_user'))
 
-    def __repr__(self):
-        return f'User(id={self.id}, ' + \
-            f'name={self.user_name}, ' + \
-            f'age={self.age}), ' + \
-            f'sport={self.sport}'
+
 
