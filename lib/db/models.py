@@ -12,16 +12,15 @@ class Workout(Base):
     __tablename__ = 'workout'
 
     id = Column(Integer, primary_key=True)
-    difficulty = Column(String)
-    started_at = Column(DateTime)
+    exercise = Column(String)
     completed_at = Column(DateTime, default=datetime.now())
 
     user_id = Column(Integer, ForeignKey('user.id'))
 
     def __repr__(self):
         return f'workout(id={self.id}, ' + \
-            f'name={self.workout_name}, ' + \
-            f'difficulty={self.difficulty})'
+            f'exercise={self.exercise}, ' + \
+            f'completed_at={self.completed_at})'
     
 class User(Base):
     __tablename__ = 'user'
