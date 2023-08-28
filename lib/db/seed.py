@@ -18,6 +18,11 @@ def create_users():
     session.commit()
     return users
 
+def delete_records():
+    session.query(Workout).delete()
+    session.query(User).delete()
+    session.commit()
+
 if __name__ == '__main__':
     workouts = create_workouts()
     users = create_users()
