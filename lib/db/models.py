@@ -7,16 +7,21 @@ engine = create_engine('sqlite://workout_data')
 
 Base = declarative_base()
 
-class exercise(Base):
+class Workout(Base):
     __tablename__ = 'exercises'
 
     id = Column(Integer, primary_key=True)
-    exercise_name = Column(String)
+    workout_name = Column(String)
     difficulty = Column(String)
     started_at = Column(DateTime)
     completed_at = Column(DateTime, default=datetime.now())
 
     def __repr__(self):
         return f'Exercise(id={self.id}, ' + \
-            f'name={self.exercise_name}, ' + \
+            f'name={self.workout_name}, ' + \
             f'difficulty={self.difficulty})'
+    
+class User(Base):
+    __tablename__ = 'users'
+
+    
