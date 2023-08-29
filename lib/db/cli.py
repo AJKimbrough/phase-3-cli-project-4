@@ -29,3 +29,10 @@ def add_user(date, user):
             age = user_data['age'],
             sport = user_data['sport']
         )
+        workout.user.append(user)
+
+    session.add(workout)
+    session.commit()
+
+    if __name__ == '__main__':
+        cli()
