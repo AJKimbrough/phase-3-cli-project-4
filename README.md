@@ -7,4 +7,4 @@ To use this tracker you need to fork and clone the repo. Open it on your local m
 Upon entering the shell you will be met with a prompt. Answer the quesitons by typing directly in the command line. 
 The inputs will be added to the correct tables.
 
-To interact with the tables run python cli.py add_user, then simply input an name, age and sport for the user.
+To interact with the tables run python cli.py add_user, then simply input a date for the workout, and for the user input name, age and sport for the user.
