@@ -20,8 +20,12 @@ def add_user(date, user):
     """Add new user"""
     session = Session()
 
-    users_data = [{'user_name': user_name, 'age': age, 'sport': sport} for user_name, age, sport in (w.split(':') for w in workout)]
-    workout = Workout(date = date, workouts = [])
+    users_data = [{'user_name': user_name, 'age': age, 'sport': sport} for user_name, age, sport in (u.split(':') for u in user)]
+    workout = Workout(date = date, users = [])
 
-    for workout_data in workouts_data:
-        workout = Workout()
+    for user_data in users_data:
+        user = User(
+            name = user_data['user_name'],
+            age = user_data['age'],
+            sport = user_data['sport']
+        )
