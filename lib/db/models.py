@@ -16,6 +16,7 @@ class Workout(Base):
     completed_at = Column(DateTime, default=datetime.now())
 
     user_id = Column(Integer, ForeignKey('users.id'))
+    user = relationship("User", back_populates="workouts")
 
     def __repr__(self):
         return f'workout(id={self.id}, ' + \
@@ -30,7 +31,7 @@ class User(Base):
     age = Column(Integer)
     sport = Column(String)
 
-    workouts = relationship("Workout", backref=backref('user'))
+    workouts = relationship("Workout", back_populates='user')
 
     def __repr__(self):
         return f'User(id={self.id}, ' + \
